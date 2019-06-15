@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="logOut()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+
+  <div  align="bottom">
+    <ion-button (click)="Accelerometer()" color="dark" expand="full" shape="round" fill="outline" type="button" >Iniciar</ion-button>
+  </div>
+  <!-- <div  align="bottom">
+    <ion-button (click)="Stop()" color="dark" expand="full" shape="round" fill="outline" type="button" >Detener</ion-button>
+  </div> -->
+  <div class="">
+        <h2 text-center class="color-black font-lg"> {{time}} </h2>
+  </div>
+
+  <div id="fondo" >
+    <div id="elemento" [ngStyle]="{'top': ejeY + '%', 'left': ejeX + '%'}"></div>
+  </div>
+  <!-- <ion-item>
+    <ion-label>Acceleration Z</ion-label>
+    <ion-input type="text" [(ngModel)]="accZ"></ion-input>
+  </ion-item> -->
+  <!-- <ion-item>
+    <ion-label>Acceleration X</ion-label>
+    <ion-input type="text" [(ngModel)]="accX"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Acceleration Y</ion-label>
+    <ion-input type="text" [(ngModel)]="accY"></ion-input>
+  </ion-item> -->
+</ion-content>

@@ -1,5 +1,7 @@
 {
   "name": "kinetico",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
