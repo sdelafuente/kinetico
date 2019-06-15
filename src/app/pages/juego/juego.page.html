@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
     <ion-buttons slot="end">
       <ion-button (click)="logOut()">
         <ion-icon slot="icon-only" name="log-out"></ion-icon>
@@ -8,13 +11,6 @@
   </ion-toolbar>
 </ion-header>
 <ion-content >
-
-  <div  align="bottom">
-    <ion-button (click)="Accelerometer()" color="dark" expand="full" shape="round" fill="outline" type="button" >Iniciar</ion-button>
-  </div>
-  <!-- <div  align="bottom">
-    <ion-button (click)="Stop()" color="dark" expand="full" shape="round" fill="outline" type="button" >Detener</ion-button>
-  </div> -->
   <div class="">
         <h2 text-center class="color-black font-lg"> {{time}} </h2>
   </div>
@@ -34,4 +30,9 @@
     <ion-label>Acceleration Y</ion-label>
     <ion-input type="text" [(ngModel)]="accY"></ion-input>
   </ion-item> -->
+
+  <div id="bottonera" align="bottom">
+    <ion-button *ngIf="!running && this.timeBegan === null" (click)="Accelerometer()" color="dark" expand="full" shape="round" fill="outline" type="button" >Iniciar</ion-button>
+    <ion-button *ngIf="!running && this.timeBegan !== null" (click)="guardarJuego()" color="dark" expand="full" shape="round" fill="outline" type="button" >Guardar</ion-button>
+  </div>
 </ion-content>

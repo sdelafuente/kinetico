@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DeviceMotion, DeviceMotionAccelerationData, DeviceMotionAccelerometerOptions } from '@ionic-native/device-motion/ngx';
 import { AuthService } from '../../services/user/auth.service';
 import { Router } from '@angular/router';
+import { JuegoService } from '../../services/juego/juego.service';
 @Component({
   selector: 'app-juego',
   templateUrl: './juego.page.html',
@@ -26,11 +27,12 @@ export class JuegoPage implements OnInit {
  public running = false
  public blankTime = "00:00.000"
  public time = "00:00.000"
-
+ public myDate: any;
   constructor(
     private authService: AuthService,
     private deviceMotion: DeviceMotion,
-    private router: Router
+    private router: Router,
+    private juegoService: JuegoService
   ) { }
 
   ngOnInit() {
@@ -146,5 +148,23 @@ export class JuegoPage implements OnInit {
       this.zeroPrefix(min, 2) + ":" +
       this.zeroPrefix(sec, 2) + "." +
       this.zeroPrefix(ms, 3);
+    }
+
+    guardarJuego(): void {
+      // if (
+      //   eventName === undefined ||
+      //   eventDate === undefined ||
+      //   eventPrice === undefined ||
+      //   eventCost === undefined
+      // ) {
+      //   return;
+      // }
+      this.myDate = new Date().toISOString();
+      this.juegoService
+        .crearJuego(this.time, this.myDate)
+        .then(() => {
+          this.reset();
+          this.router.navigateByUrl('home');
+        });
     }
 }
