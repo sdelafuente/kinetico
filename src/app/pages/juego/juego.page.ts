@@ -3,6 +3,7 @@ import { DeviceMotion, DeviceMotionAccelerationData, DeviceMotionAccelerometerOp
 import { AuthService } from '../../services/user/auth.service';
 import { Router } from '@angular/router';
 import { JuegoService } from '../../services/juego/juego.service';
+import { AudioService } from '../../services/audio/audio.service';
 @Component({
   selector: 'app-juego',
   templateUrl: './juego.page.html',
@@ -28,14 +29,21 @@ export class JuegoPage implements OnInit {
  public blankTime = "00:00.000"
  public time = "00:00.000"
  public myDate: any;
+
   constructor(
     private authService: AuthService,
+    private audioService: AudioService,
     private deviceMotion: DeviceMotion,
     private router: Router,
     private juegoService: JuegoService
-  ) { }
+  ) {
+    this.audioService.preload('click', 'assets/sounds/click.mp3');
+  }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  ionViewDidEnter() {
+    this.audioService.play('click');
   }
 
   // Acelerometro

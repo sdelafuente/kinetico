@@ -9,8 +9,15 @@ const routes: Routes = [
     loadChildren: './home/home.module#HomePageModule',
     canActivate: [AuthGuard],
    },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  { path: 'juego', loadChildren: './pages/juego/juego.module#JuegoPageModule' },
+  {
+    path: 'login',
+    loadChildren: './pages/login/login.module#LoginPageModule',
+   },
+  {
+    path: 'juego',
+    loadChildren: './pages/juego/juego.module#JuegoPageModule',
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
@@ -19,4 +26,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

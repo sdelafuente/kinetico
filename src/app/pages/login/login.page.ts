@@ -61,7 +61,7 @@ export class LoginPage implements OnInit {
   }
 
   cargarUsuario(user) {
-    console.log(  this.loginForm.value);
+    // console.log(  this.loginForm.value);
     switch (user) {
        case 'admin': {
            this.loginForm = this.formBuilder.group({

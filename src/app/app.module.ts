@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion/ngx';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     DeviceMotion,
+    NativeAudio
   ],
   bootstrap: [AppComponent]
 })
